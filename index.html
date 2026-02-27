@@ -167,24 +167,64 @@ footer{
 <section>
     <h2>Ejemplos de Mis Proyectos</h2>
     <div class="cards">
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200.png?text=Restaurante" alt="Ejemplo Restaurante">
-            <h3>Landing Restaurante</h3>
-            <p>Menú digital, promociones y pedidos conectados a WhatsApp.</p>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200.png?text=Barberia" alt="Ejemplo Barbería">
-            <h3>Landing Barbería</h3>
-            <p>Reservas online, servicios y contacto directo con clientes.</p>
-        </div>
-        <div class="card">
-            <img src="https://via.placeholder.com/300x200.png?text=Tienda+Local" alt="Ejemplo Tienda Local">
-            <h3>Landing Tienda Local</h3>
-            <p>Presentación de productos, promociones y contacto instantáneo.</p>
-        </div>
+    <div class="card" onclick="abrirEjemplo('restaurante')">
+        <img src="https://via.placeholder.com/300x200.png?text=Restaurante" alt="Ejemplo Restaurante">
+        <h3>Landing Restaurante</h3>
+        <p>Menú digital, promociones y pedidos conectados a WhatsApp.</p>
     </div>
+    <div class="card" onclick="abrirEjemplo('barberia')">
+        <img src="https://via.placeholder.com/300x200.png?text=Barberia" alt="Ejemplo Barbería">
+        <h3>Landing Barbería</h3>
+        <p>Reservas online, servicios y contacto directo con clientes.</p>
+    </div>
+    <div class="card" onclick="abrirEjemplo('tienda')">
+        <img src="https://via.placeholder.com/300x200.png?text=Tienda+Local" alt="Ejemplo Tienda Local">
+        <h3>Landing Tienda Local</h3>
+        <p>Presentación de productos, promociones y contacto instantáneo.</p>
+    </div>
+</div>
 </section>
+<!-- Modales de ejemplo -->
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; overflow:auto;">
+    <div style="max-width:900px; margin:50px auto; background:#0f0f0f; padding:20px; border-radius:12px; position:relative;">
+        <span style="position:absolute; top:10px; right:20px; font-size:30px; cursor:pointer; color:#00cc00;" onclick="cerrarModal()">&times;</span>
+        <div id="contenidoModal"></div>
+    </div>
+</div>
 
+<script>
+function abrirEjemplo(tipo){
+    let contenido = '';
+    if(tipo === 'restaurante'){
+        contenido = `
+            <h2 style="color:#008000;">Landing Restaurante</h2>
+            <p style="color:#cfcfcf;">Menú digital con fotos, promociones y botón de WhatsApp para pedidos.</p>
+            <img src="https://via.placeholder.com/800x400.png?text=Ejemplo+Restaurante" style="width:100%; border-radius:8px;">
+            <a href="https://wa.me/522224290839?text=Hola,%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20restaurante" class="btn" style="margin-top:20px; display:inline-block;">Contactar</a>
+        `;
+    } else if(tipo === 'barberia'){
+        contenido = `
+            <h2 style="color:#008000;">Landing Barbería</h2>
+            <p style="color:#cfcfcf;">Reservas online, servicios y contacto directo con clientes.</p>
+            <img src="https://via.placeholder.com/800x400.png?text=Ejemplo+Barberia" style="width:100%; border-radius:8px;">
+            <a href="https://wa.me/522224290839?text=Hola,%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20barberia" class="btn" style="margin-top:20px; display:inline-block;">Contactar</a>
+        `;
+    } else if(tipo === 'tienda'){
+        contenido = `
+            <h2 style="color:#008000;">Landing Tienda Local</h2>
+            <p style="color:#cfcfcf;">Presentación de productos, promociones y contacto instantáneo.</p>
+            <img src="https://via.placeholder.com/800x400.png?text=Ejemplo+Tienda+Local" style="width:100%; border-radius:8px;">
+            <a href="https://wa.me/522224290839?text=Hola,%20quiero%20una%20p%C3%A1gina%20web%20para%20mi%20tienda" class="btn" style="margin-top:20px; display:inline-block;">Contactar</a>
+        `;
+    }
+    document.getElementById('contenidoModal').innerHTML = contenido;
+    document.getElementById('modal').style.display = 'block';
+}
+
+function cerrarModal(){
+    document.getElementById('modal').style.display = 'none';
+}
+</script>
 <div class="cta">
     <h2>¿Listo Para Llevar Tu Negocio Al Siguiente Nivel?</h2>
     <br>
